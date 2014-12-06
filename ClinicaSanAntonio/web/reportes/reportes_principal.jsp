@@ -4,7 +4,7 @@
 <title>Reportes</title>
 <br>
 <br>
-<h3>Reportes que genera el Sistema:</h3><br>
+<h3>Reportes que genera el Sistema Clinico:</h3><br>
 <ul>
     <style>
         ul li{
