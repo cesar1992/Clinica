@@ -4,7 +4,14 @@
 <title>Reportes</title>
 <br>
 <br>
-<h3>Reportes que genera el Sistema Clinico:</h3><br>
+<h3>Reportes que genera el Sistema:</h3><br>
+<%
+    String especialidades[][];
+    String tiposcitas[][];
+    tiposcitas = Operaciones.consultar("select * from tiposcitas"); 
+    especialidades = Operaciones.consultar("select * from especialidades");
+%>
+
 <ul>
     <style>
         ul li{
@@ -18,11 +25,30 @@
 <br>
 <br>
 <br>
-<h3>Consultar expediente:</h3>
-<form method="post" action="consultas_expediente.jsp">
-    <label>Num. Expediente: </label>
-    <input type="text" name="numExpediente" /><br>
-    <input type="submit" value="Consultar"/>
+<h3>Consultar doctores de una especialidad:</h3>
+<form method="post" action="especialidades_doctor.jsp" target="_blank">
+    <label>Seleccione la especialidad: </label>
+    <select name="txtEspecialidad">
+        <%for (int i=0; i<especialidades[0].length;i++){%>
+                                    <option value="<%= especialidades[0][i] %>">
+                                    <%= especialidades[1][i] %>
+                                    </option>
+        <% } %>
+    </select>
+    <input type="submit" value="Ver Reporte"/>
+</form>
+    
+    <h3>Consultar todas las citas de acuerdo al tipo de Cita:</h3>
+<form method="post" action="tiposcitas.jsp" target="_blank">
+    <label>Seleccione el tipo de cita: </label>
+    <select name="txtTipoCita">
+        <%for (int i=0; i<tiposcitas[0].length;i++){%>
+                                    <option value="<%= tiposcitas[0][i] %>">
+                                    <%= tiposcitas[1][i] %>
+                                    </option>
+        <% } %>
+    </select>
+    <input type="submit" value="Ver Reporte"/>
 </form>
 
 <br/>
